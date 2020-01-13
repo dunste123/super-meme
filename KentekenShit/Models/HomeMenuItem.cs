@@ -6,6 +6,11 @@ namespace KentekenShit.Models
 {
     public enum MenuItemType
     {
+        Home,
+        Details,
+        History,
+        Favorites,
+        Settings,
         Browse,
         About
     }
