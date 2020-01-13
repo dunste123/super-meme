@@ -21,6 +21,8 @@ namespace KentekenShit.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
+                new HomeMenuItem {Id = MenuItemType.History, Title="History" },
+                new HomeMenuItem {Id = MenuItemType.Favorites, Title="Favorites" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

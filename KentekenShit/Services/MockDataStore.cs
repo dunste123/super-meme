@@ -14,12 +14,17 @@ namespace KentekenShit.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item {
+                    Id = Guid.NewGuid().ToString(),
+                    Plate="48XRFF",
+                    Make="Toyota",
+                    Seets="5",
+                    Cylinders="4",
+                    Doors="4",
+                    Wheels="4",
+                    Price="5",
+                    TaxiSign="No",
+                },
             };
         }
 
@@ -52,7 +57,7 @@ namespace KentekenShit.Services
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<List<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

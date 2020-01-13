@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:svg="clr-namespace:KentekenShit"
+             Title="{Binding Title}"
              x:Class="KentekenShit.Views.DetailsPage">
     <ContentPage.Content>
         <Grid>
@@ -11,23 +13,38 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0">
-                <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                    <Label FontSize="22">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Info about" />
-                                    <Span Text=" " />
-                                    <Span Text="48-XR-FF" FontAttributes="Bold" FontSize="22" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </StackLayout>
-            </StackLayout>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label FontSize="22" Padding="16,40,16,40" Grid.Row="0" Grid.Column="0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Info about" />
+                            <Span Text=" " />
+                            <Span Text="{Binding Item.Plate}" d:Text="48XRFF" FontAttributes="Bold" FontSize="22" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!--<Label Text="{Binding FavText}" d:Text="Add To favorites" Padding="16,40,16,40" Grid.Row="0" Grid.Column="1" />-->
+            <Button Text="{Binding FavText}"
+                    d:Text="Add to favorites"
+                    Margin="16,40,16,40"
+                    WidthRequest="100"
+                    BackgroundColor="{Binding BtnColor}"
+                    d:BackgroundColor="LightGray"
+                    Grid.Row="0"
+                    Grid.Column="1" />
+            <svg:Icon ResourceId="KentekenShit.Assets.star-solid.svg"
+                      WidthRequest="20"
+                      HeightRequest="20"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                      />
 
-            <ScrollView Grid.Row="1">
+            <ScrollView Grid.Row="1" Grid.Column="0">
                 <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                     <Label FontSize="15">
                         <Label.FormattedText>
@@ -35,7 +52,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Make:" />
                                     <Span Text=" " />
-                                    <Span Text="TOYOTA" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Make}" d:Text="TOYOTA" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -46,7 +63,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Seets:" />
                                     <Span Text=" " />
-                                    <Span Text="5" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Seets}" d:Text="5" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -57,7 +74,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Cylinder Count:" />
                                     <Span Text=" " />
-                                    <Span Text="4" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Cylinders}" d:Text="4" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -68,7 +85,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Door Count:" />
                                     <Span Text=" " />
-                                    <Span Text="4" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Doors}" d:Text="4" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -79,7 +96,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Wheel Count:" />
                                     <Span Text=" " />
-                                    <Span Text="4" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Wheels}" d:Text="4" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -90,7 +107,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Price:" />
                                     <Span Text=" €" />
-                                    <Span Text="28549" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.Price}" d:Text="28549" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
@@ -101,7 +118,7 @@
                                 <FormattedString.Spans>
                                     <Span Text="Taxi Sign:" />
                                     <Span Text=" " />
-                                    <Span Text="No" FontAttributes="Bold" FontSize="15" />
+                                    <Span Text="{Binding Item.TaxiSign}" d:Text="No" FontAttributes="Bold" FontSize="15" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
