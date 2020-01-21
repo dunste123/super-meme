@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+﻿using System;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace KentekenShit.ViewModels
 {
@@ -9,11 +9,11 @@ namespace KentekenShit.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "About";
 
-            OpenWebCommand = new Command(() => Launcher.OpenAsync(new Uri("https://xamarin.com/platform")));
+            OpenWebCommand = new Command(() => Launcher.OpenAsync(new Uri("https://xamarin.com/platform")));
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand OpenWebCommand { get; }
     }
 }

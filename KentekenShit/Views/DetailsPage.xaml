@@ -4,9 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:svg="clr-namespace:KentekenShit"
              Title="{Binding Title}"
              x:Class="KentekenShit.Views.DetailsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{Binding ImgSource, Mode=OneWay}" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -28,21 +32,9 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <!--<Label Text="{Binding FavText}" d:Text="Add To favorites" Padding="16,40,16,40" Grid.Row="0" Grid.Column="1" />-->
-            <Button Text="{Binding FavText}"
-                    d:Text="Add to favorites"
-                    Margin="16,40,16,40"
-                    WidthRequest="100"
-                    BackgroundColor="{Binding BtnColor}"
-                    d:BackgroundColor="LightGray"
-                    Grid.Row="0"
-                    Grid.Column="1" />
-            <svg:Icon ResourceId="KentekenShit.Assets.star-solid.svg"
-                      WidthRequest="20"
-                      HeightRequest="20"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                      />
+            <Image Source="{Binding ImgSource}" VerticalOptions="Center" HeightRequest="64"
+                   Grid.Row="0"
+                   Grid.Column="1"  />
 
             <ScrollView Grid.Row="1" Grid.Column="0">
                 <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">

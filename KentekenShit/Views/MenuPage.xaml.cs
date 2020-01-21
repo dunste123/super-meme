@@ -1,9 +1,9 @@
-﻿using KentekenShit.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using KentekenShit.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace KentekenShit.Views
 {
@@ -12,11 +12,11 @@ namespace KentekenShit.Views
     [DesignTimeVisible(false)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        List<HomeMenuItem> menuItems;
+        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        List<HomeMenuItem> menuItems;
         public MenuPage()
         {
-            InitializeComponent();
+            InitializeComponent();
 
             menuItems = new List<HomeMenuItem>
             {
@@ -24,19 +24,19 @@ namespace KentekenShit.Views
                 new HomeMenuItem {Id = MenuItemType.History, Title="History" },
                 new HomeMenuItem {Id = MenuItemType.Favorites, Title="Favorites" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
-            };
+            };
 
-            ListViewMenu.ItemsSource = menuItems;
+            ListViewMenu.ItemsSource = menuItems;
 
-            ListViewMenu.SelectedItem = menuItems[0];
+            ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)
-                    return;
+                    return;
 
-                var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
-            };
+                var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+                await RootPage.NavigateFromMenu(id);
+            };
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using System;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-using KentekenShit.Models;
-using KentekenShit.ViewModels;
+using KentekenShit.Models;
+using KentekenShit.ViewModels;
 
 namespace KentekenShit.Views
 {
@@ -13,27 +13,27 @@ namespace KentekenShit.Views
     [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        ItemDetailViewModel viewModel;
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
-            InitializeComponent();
+            InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = this.viewModel = viewModel;
         }
 
         public ItemDetailPage()
         {
-            InitializeComponent();
+            InitializeComponent();
 
             var item = new Item
             {
                 Text = "Item 1",
                 Description = "This is an item description."
-            };
+            };
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            viewModel = new ItemDetailViewModel(item);
+            BindingContext = viewModel;
         }
     }
 }

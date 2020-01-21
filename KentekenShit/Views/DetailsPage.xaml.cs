@@ -1,41 +1,41 @@
-﻿using KentekenShit.Models;
-using KentekenShit.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KentekenShit.Models;
+using KentekenShit.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace KentekenShit.Views
 {
     [DesignTimeVisible(false)]
     public partial class DetailsPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        ItemDetailViewModel viewModel;
 
         public DetailsPage(ItemDetailViewModel viewModel)
         {
-            InitializeComponent();
+            InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
+            BindingContext = this.viewModel = viewModel;
         }
 
         public DetailsPage()
         {
-            InitializeComponent();
+            InitializeComponent();
 
             var item = new Item
             {
                 Text = "Item 1",
                 Description = "48XRFF"
-            };
+            };
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            viewModel = new ItemDetailViewModel(item);
+            BindingContext = viewModel;
         }
     }
 }
