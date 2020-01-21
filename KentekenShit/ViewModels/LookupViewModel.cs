@@ -4,7 +4,7 @@ namespace KentekenShit.ViewModels
     {
         public LookupViewModel()
         {
-            Title = "Licence Plate Thing";
+            Title = "Licence Plate Thing";
         }
     }
 }

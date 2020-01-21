@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace KentekenShit.Models
 {
@@ -16,8 +16,8 @@ namespace KentekenShit.Models
     }
     public class HomeMenuItem
     {
-        public MenuItemType Id { get; set; }
+        public MenuItemType Id { get; set; }
 
-        public string Title { get; set; }
+        public string Title { get; set; }
     }
 }

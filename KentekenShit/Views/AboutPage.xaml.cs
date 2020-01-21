@@ -1,7 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using System;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace KentekenShit.Views
 {
@@ -12,7 +12,7 @@ namespace KentekenShit.Views
     {
         public AboutPage()
         {
-            InitializeComponent();
+            InitializeComponent();
         }
     }
 }

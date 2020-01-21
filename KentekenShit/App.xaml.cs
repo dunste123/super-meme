@@ -1,8 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using KentekenShit.Services;
-using KentekenShit.Views;
+﻿using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using KentekenShit.Services;
+using KentekenShit.Views;
 
 namespace KentekenShit
 {
@@ -11,10 +11,10 @@ namespace KentekenShit
 
         public App()
         {
-            InitializeComponent();
+            InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            DependencyService.Register<MockDataStore>();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
