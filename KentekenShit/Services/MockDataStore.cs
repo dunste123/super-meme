@@ -16,7 +16,7 @@ namespace KentekenShit.Services
             {
                 new Item
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = new Random().Next(int.MaxValue),
                     Plate = "48XRFF",
                     Make = "Toyota",
                     Seets = "5",
@@ -46,7 +46,7 @@ namespace KentekenShit.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
             var oldItem = items.FirstOrDefault(arg => arg.Id == id);
             items.Remove(oldItem);
@@ -54,7 +54,7 @@ namespace KentekenShit.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(int id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }

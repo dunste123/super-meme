@@ -22,6 +22,7 @@ namespace KentekenShit.Views
             InitializeComponent();
 
             BindingContext = viewModel;
+            this.viewModel = viewModel;
         }
 
         public DetailsPage()
@@ -40,12 +41,7 @@ namespace KentekenShit.Views
 
         private void FavItemClickedDSte(object sender, EventArgs e)
         {
-            // viewModel is null but BindingContext isn't ????
-
-            var ctx = BindingContext as ItemDetailViewModel;
-
-            if (ctx == null) return;
-            
+            var ctx = viewModel;
             var item = ctx.Item;
 
             if (item == null)

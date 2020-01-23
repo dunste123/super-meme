@@ -29,6 +29,7 @@
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     WidthRequest="220"
+                    Clicked="SearchClicked"
                     BackgroundColor="#2196F3"
                     TextColor="White" />
         </StackLayout>

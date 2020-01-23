@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -10,14 +11,14 @@ using KentekenShit.Views;
 
 namespace KentekenShit.ViewModels
 {
-    public class HistoryViewModel : BaseViewModel
+    public class FavoritesViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public HistoryViewModel()
+        public FavoritesViewModel()
         {
-            Title = "History";
+            Title = "Favorites";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(ExecuteLoadItemsCommand);
 
@@ -40,7 +41,7 @@ namespace KentekenShit.ViewModels
             {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                foreach (var item in items.Where(item => item.InFavoirites))
                 {
                     Items.Add(item);
                 }

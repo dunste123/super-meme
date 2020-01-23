@@ -13,6 +13,9 @@ namespace KentekenShit.Services
 
         public SQLiteDataStore()
         {
+            Console.WriteLine("HELMOND");
+            Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            
             var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "database.db");
 
             _database = new SQLiteAsyncConnection(dbPath);
@@ -21,22 +24,24 @@ namespace KentekenShit.Services
 
         public Task<bool> AddItemAsync(Item item)
         {
-            return Task.Run(() => _database.InsertAsync(item).Result > 0);
+            return _database.InsertAsync(item)
+                .ContinueWith((a) => a.Result > 0);
         }
 
         public Task<bool> UpdateItemAsync(Item item)
         {
-            return Task.Run(() => _database.UpdateAsync(item).Result > 0);
+            return _database.UpdateAsync(item)
+                .ContinueWith((a) => a.Result > 0);
         }
 
-        public Task<bool> DeleteItemAsync(string id)
+        public Task<bool> DeleteItemAsync(int id)
         {
             return _database.Table<Item>()
                 .DeleteAsync((i) => i.Id == id)
                 .ContinueWith((a) => a.Result > 0);
         }
 
-        public Task<Item> GetItemAsync(string id)
+        public Task<Item> GetItemAsync(int id)
         {
             return _database.Table<Item>()
                             .Where(i => i.Id == id)
